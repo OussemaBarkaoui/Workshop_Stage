@@ -1,0 +1,30 @@
+services:
+  mysql:
+    container_name: mysql-sql-sar
+    image: mysql
+    environment:
+      MYSQL_User: username
+      MYSQL_password: password
+      MSDATA: /var/lib/mysql/data
+      MYSQL_DB: SAR
+    volumes:
+      - mysql:/data/mysql
+    ports:
+      - 5432:5432
+    networks:
+      - spring-demo
+    restart: unless-stopped
+
+  mail-dev:
+    container_name: mail-dev-sar
+    image: maildev/maildev
+    ports:
+      - 1080:1080
+      - 1025:1025
+
+networks:
+  spring-demo:
+    driver: bridge
+volumes:
+  mysql:
+    driver: local
