@@ -59,4 +59,13 @@ public class ApplicationController {
         applicationService.deleteApplicationById(appId);
         return ResponseEntity.noContent().build();
     }
+    @PatchMapping("/UpdateStatus/{appId}")
+    public ResponseEntity<Void> UpdateCandidateStatus(
+            @PathVariable("appId") Integer appId,
+            @Valid @RequestBody ApplicationRequest request
+    )
+    {
+        applicationService.updateCandidateStatus(appId,request);
+        return ResponseEntity.noContent().build();
+    }
 }

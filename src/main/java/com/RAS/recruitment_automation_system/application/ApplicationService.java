@@ -90,6 +90,12 @@ private final JobListingRepository jobListingRepository;
 
         applicationRepository.deleteById(appId);
     }
+    public void updateCandidateStatus(Integer appId,ApplicationRequest request){
+        Application application =applicationRepository.findById(appId)
+                .orElseThrow(()-> new RuntimeException("application not find"));
+        application.setStatus(request.status());
+        applicationRepository.save(application);
+    }
 
 
 }
