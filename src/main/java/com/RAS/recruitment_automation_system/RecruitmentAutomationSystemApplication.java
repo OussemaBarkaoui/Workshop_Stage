@@ -1,5 +1,6 @@
 package com.RAS.recruitment_automation_system;
 
+import com.RAS.recruitment_automation_system.jobListing.JobListing;
 import com.RAS.recruitment_automation_system.role.Role;
 import com.RAS.recruitment_automation_system.role.RoleRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -29,5 +30,6 @@ public class RecruitmentAutomationSystemApplication {
 			}
 		};
 	}
+
 
 }

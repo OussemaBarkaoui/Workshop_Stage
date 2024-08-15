@@ -3,6 +3,7 @@ package com.RAS.recruitment_automation_system.jobListing;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -18,6 +19,6 @@ public class JobListingResponse {
     private String location;
     private String department;
     private String requirements;
-    private java.sql.Date postedDate;
-    private java.sql.Date closingDate;
+    private Date postedDate;
+    private Date closingDate;
 }

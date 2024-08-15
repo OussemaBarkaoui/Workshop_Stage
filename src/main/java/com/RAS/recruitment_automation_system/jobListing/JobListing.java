@@ -1,7 +1,9 @@
 package com.RAS.recruitment_automation_system.jobListing;
 
 
+import com.RAS.recruitment_automation_system.application.Application;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,8 +13,10 @@ import lombok.experimental.SuperBuilder;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity
@@ -25,14 +29,17 @@ import java.time.LocalDateTime;
 public class JobListing {
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     private String title;
     private String description;
     private String location;
     private String department;
     private String requirements;
-    private java.sql.Date postedDate;
-    private java.sql.Date closingDate;
+    private Date postedDate;
+    private Date closingDate;
+    @JsonIgnore
+    @OneToMany(mappedBy = "jobListing", cascade = CascadeType.ALL)
+    private List<Application> applications;
 
 }
